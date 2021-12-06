@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+  <head>
+    <title>Covid Data</title>
+    <link type="text/css" rel="stylesheet" href="elegant-aero.css" />
+  </head>
+  <!-- Thanks to Mario C. E. Freese <mcefreese@gmail.com> for permission to use background image -->
+  <body style='background-repeat:no-repeat;background-position:center top;-webkit-background-size:100%;-moz-background-size:100%;-o-background-size:100%;background-size: 100%;'>
+    <p style="margin-bottom:2cm"/>
+    <form action="/covid.html" style="width:400px;margin:0 auto;padding-top=200px;background:#FFFFFF" method="get" target="results_iframe" class="elegant-aero">
+      <div style="text-align:center">
+      <a href="http://ec2-52-14-115-151.us-east-2.compute.amazonaws.com:3027/covid-submit.html">
+        <input type="button" value='Click here to submit new covid-19 data'>
+      </a>
+
+
+      <label>
+	<span>Country/Region:</span>
+    <select id="country" name="country" onchange="setstate()">
+      <option value="">Please select a country/region</option>
+      <option value="Afghanistan">Afghanistan</option>
+      <option value="Albania">Albania</option>
+      <option value="Algeria">Algeria</option>
+      <option value="Andorra">Andorra</option>
+      <option value="Angola">Angola</option>
+      <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+      <option value="Argentina">Argentina</option>
+      <option value="Armenia">Armenia</option>
+      <option value="Australia">Australia</option>
+      <option value="Austria">Austria</option>
+      <option value="Azerbaijan">Azerbaijan</option>
+      <option value="Bahamas">Bahamas</option>
+      <option value="Bahrain">Bahrain</option>
+      <option value="Bangladesh">Bangladesh</option>
+      <option value="Barbados">Barbados</option>
+      <option value="Belarus">Belarus</option>
+      <option value="Belgium">Belgium</option>
+      <option value="Belize">Belize</option>
+      <option value="Benin">Benin</option>
+      <option value="Bhutan">Bhutan</option>
+      <option value="Bolivia">Bolivia</option>
+      <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+      <option value="Botswana">Botswana</option>
+      <option value="Brazil">Brazil</option>
+      <option value="Brunei">Brunei</option>
+      <option value="Bulgaria">Bulgaria</option>
+      <option value="Burkina Faso">Burkina Faso</option>
+      <option value="Burma">Burma</option>
+      <option value="Burundi">Burundi</option>
+      <option value="Cabo Verde">Cabo Verde</option>
+      <option value="Cambodia">Cambodia</option>
+      <option value="Cameroon">Cameroon</option>
+      <option value="Canada">Canada</option>
+      <option value="Central African Republic">Central African Republic</option>
+      <option value="Chad">Chad</option>
+      <option value="Chile">Chile</option>
+      <option value="China">China</option>
+      <option value="Colombia">Colombia</option>
+      <option value="Comoros">Comoros</option>
+      <option value="Congo (Brazzaville)">Congo (Brazzaville)</option>
+      <option value="Congo (Kinshasa)">Congo (Kinshasa)</option>
+      <option value="Costa Rica">Costa Rica</option>
+      <option value="Cote d'Ivoire">Cote d'Ivoire</option>
+      <option value="Croatia">Croatia</option>
+      <option value="Cruise Ship">Cruise Ship</option>
+      <option value="Cuba">Cuba</option>
+      <option value="Cyprus">Cyprus</option>
+      <option value="Czechia">Czechia</option>
+      <option value="Denmark">Denmark</option>
+      <option value="Diamond Princess">Diamond Princess</option>
+      <option value="Djibouti">Djibouti</option>
+      <option value="Dominica">Dominica</option>
+      <option value="Dominican Republic">Dominican Republic</option>
+      <option value="Ecuador">Ecuador</option>
+      <option value="Egypt">Egypt</option>
+      <option value="El Salvador">El Salvador</option>
+      <option value="Equatorial Guinea">Equatorial Guinea</option>
+      <option value="Eritrea">Eritrea</option>
+      <option value="Estonia">Estonia</option>
+      <option value="Eswatini">Eswatini</option>
+      <option value="Ethiopia">Ethiopia</option>
+      <option value="Fiji">Fiji</option>
+      <option value="Finland">Finland</option>
+      <option value="France">France</option>
+      <option value="Gabon">Gabon</option>
+      <option value="Gambia">Gambia</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Germany">Germany</option>
+      <option value="Ghana">Ghana</option>
+      <option value="Greece">Greece</option>
+      <option value="Grenada">Grenada</option>
+      <option value="Guatemala">Guatemala</option>
+      <option value="Guinea">Guinea</option>
+      <option value="Guinea-Bissau">Guinea-Bissau</option>
+      <option value="Guyana">Guyana</option>
+      <option value="Haiti">Haiti</option>
+      <option value="Holy See">Holy See</option>
+      <option value="Honduras">Honduras</option>
+      <option value="Hungary">Hungary</option>
+      <option value="Iceland">Iceland</option>
+      <option value="India">India</option>
+      <option value="Indonesia">Indonesia</option>
+      <option value="Iran">Iran</option>
+      <option value="Iraq">Iraq</option>
+      <option value="Ireland">Ireland</option>
+      <option value="Israel">Israel</option>
+      <option value="Italy">Italy</option>
+      <option value="Jamaica">Jamaica</option>
+      <option value="Japan">Japan</option>
+      <option value="Jordan">Jordan</option>
+      <option value="Kazakhstan">Kazakhstan</option>
+      <option value="Kenya">Kenya</option>
+      <option value="Kiribati">Kiribati</option>
+      <option value="Kosovo">Kosovo</option>
+      <option value="Kuwait">Kuwait</option>
+      <option value="Kyrgyzstan">Kyrgyzstan</option>
+      <option value="Laos">Laos</option>
+      <option value="Latvia">Latvia</option>
+      <option value="Lebanon">Lebanon</option>
+      <option value="Lesotho">Lesotho</option>
+      <option value="Liberia">Liberia</option>
+      <option value="Libya">Libya</option>
+      <option value="Liechtenstein">Liechtenstein</option>
+      <option value="Lithuania">Lithuania</option>
+      <option value="Luxembourg">Luxembourg</option>
+      <option value="MS Zaandam">MS Zaandam</option>
+      <option value="Madagascar">Madagascar</option>
+      <option value="Malawi">Malawi</option>
+      <option value="Malaysia">Malaysia</option>
+      <option value="Maldives">Maldives</option>
+      <option value="Mali">Mali</option>
+      <option value="Malta">Malta</option>
+      <option value="Marshall Islands">Marshall Islands</option>
+      <option value="Mauritania">Mauritania</option>
+      <option value="Mauritius">Mauritius</option>
+      <option value="Mexico">Mexico</option>
+      <option value="Micronesia">Micronesia</option>
+      <option value="Moldova">Moldova</option>
+      <option value="Monaco">Monaco</option>
+      <option value="Mongolia">Mongolia</option>
+      <option value="Montenegro">Montenegro</option>
+      <option value="Morocco">Morocco</option>
+      <option value="Mozambique">Mozambique</option>
+      <option value="Namibia">Namibia</option>
+      <option value="Nepal">Nepal</option>
+      <option value="Netherlands">Netherlands</option>
+      <option value="New Zealand">New Zealand</option>
+      <option value="Nicaragua">Nicaragua</option>
+      <option value="Niger">Niger</option>
+      <option value="Nigeria">Nigeria</option>
+      <option value="North Macedonia">North Macedonia</option>
+      <option value="Norway">Norway</option>
+      <option value="Oman">Oman</option>
+      <option value="Pakistan">Pakistan</option>
+      <option value="Palau">Palau</option>
+      <option value="Panama">Panama</option>
+      <option value="Papua New Guinea">Papua New Guinea</option>
+      <option value="Paraguay">Paraguay</option>
+      <option value="Peru">Peru</option>
+      <option value="Philippines">Philippines</option>
+      <option value="Poland">Poland</option>
+      <option value="Portugal">Portugal</option>
+      <option value="Qatar">Qatar</option>
+      <option value="Romania">Romania</option>
+      <option value="Russia">Russia</option>
+      <option value="Rwanda">Rwanda</option>
+      <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+      <option value="Saint Lucia">Saint Lucia</option>
+      <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+      <option value="Samoa">Samoa</option>
+      <option value="San Marino">San Marino</option>
+      <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+      <option value="Saudi Arabia">Saudi Arabia</option>
+      <option value="Senegal">Senegal</option>
+      <option value="Serbia">Serbia</option>
+      <option value="Seychelles">Seychelles</option>
+      <option value="Sierra Leone">Sierra Leone</option>
+      <option value="Singapore">Singapore</option>
+      <option value="Slovakia">Slovakia</option>
+      <option value="Slovenia">Slovenia</option>
+      <option value="Solomon Islands">Solomon Islands</option>
+      <option value="Somalia">Somalia</option>
+      <option value="South Africa">South Africa</option>
+      <option value="South Sudan">South Sudan</option>
+      <option value="Spain">Spain</option>
+      <option value="Sri Lanka">Sri Lanka</option>
+      <option value="Sudan">Sudan</option>
+      <option value="Summer Olympics 2020">Summer Olympics 2020</option>
+      <option value="Suriname">Suriname</option>
+      <option value="Sweden">Sweden</option>
+      <option value="Switzerland">Switzerland</option>
+      <option value="Syria">Syria</option>
+      <option value="Taiwan*">Taiwan*</option>
+      <option value="Tajikistan">Tajikistan</option>
+      <option value="Tanzania">Tanzania</option>
+      <option value="Thailand">Thailand</option>
+      <option value="Timor-Leste">Timor-Leste</option>
+      <option value="Togo">Togo</option>
+      <option value="Tonga">Tonga</option>
+      <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+      <option value="Tunisia">Tunisia</option>
+      <option value="Turkey">Turkey</option>
+      <option value="US">US</option>
+      <option value="Uganda">Uganda</option>
+      <option value="Ukraine">Ukraine</option>
+      <option value="United Arab Emirates">United Arab Emirates</option>
+      <option value="United Kingdom">United Kingdom</option>
+      <option value="Uruguay">Uruguay</option>
+      <option value="Uzbekistan">Uzbekistan</option>
+      <option value="Vanuatu">Vanuatu</option>
+      <option value="Venezuela">Venezuela</option>
+      <option value="Vietnam">Vietnam</option>
+      <option value="West Bank and Gaza">West Bank and Gaza</option>
+      <option value="Yemen">Yemen</option>
+      <option value="Zambia">Zambia</option>
+      <option value="Zimbabwe">Zimbabwe</option>
+    </select>
+
+    <script type="text/JavaScript">
+      let country_state = {
+        "Afghanistan": ["Afghanistan"],
+        "Albania": ["Albania"],
+        "Algeria": ["Algeria"],
+        "Andorra": ["Andorra"],
+        "Angola": ["Angola"],
+        "Antigua and Barbuda": ["Antigua and Barbuda"],
+        "Argentina": ["Argentina"],
+        "Armenia": ["Armenia"],
+        "Australia": ["Australian Capital Territory", "New South Wales", "Northern Territory", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia"],
+        "Austria": ["Austria"],
+        "Azerbaijan": ["Azerbaijan"],
+        "Bahamas": ["Bahamas"],
+        "Bahrain": ["Bahrain"],
+        "Bangladesh": ["Bangladesh"],
+        "Barbados": ["Barbados"],
+        "Belarus": ["Belarus"],
+        "Belgium": ["Antwerp", "Belgium", "Brussels", "East Flanders", "Flemish Brabant", "Hainaut", "Liege", "Limburg", "Luxembourg", "Namur", "Unknown", "Walloon Brabant", "West Flanders"],
+        "Belize": ["Belize"],
+        "Benin": ["Benin"],
+        "Bhutan": ["Bhutan"],
+        "Bolivia": ["Bolivia"],
+        "Bosnia and Herzegovina": ["Bosnia and Herzegovina"],
+        "Botswana": ["Botswana"],
+        "Brazil": ["Acre", "Alagoas", "Amapa", "Amazonas", "Bahia", "Brazil", "Ceara", "Distrito Federal", "Espirito Santo", "Goias", "Maranhao", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Para", "Paraiba", "Parana", "Pernambuco", "Piaui", "Rio Grande do Norte", "Rio Grande do Sul", "Rio de Janeiro", "Rondonia", "Roraima", "Santa Catarina", "Sao Paulo", "Sergipe", "Tocantins", "Unknown"],
+        "Brunei": ["Brunei"],
+        "Bulgaria": ["Bulgaria"],
+        "Burkina Faso": ["Burkina Faso"],
+        "Burma": ["Burma"],
+        "Burundi": ["Burundi"],
+        "Cabo Verde": ["Cabo Verde"],
+        "Cambodia": ["Cambodia"],
+        "Cameroon": ["Cameroon"],
+        "Canada": ["Alberta", "British Columbia", "Diamond Princess", "Grand Princess", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Northwest Territories", "Nova Scotia", "Nunavut", "Ontario", "Prince Edward Island", "Quebec", "Recovered", "Repatriated Travellers", "Saskatchewan", "Yukon"],
+        "Central African Republic": ["Central African Republic"],
+        "Chad": ["Chad"],
+        "Chile": ["Antofagasta", "Araucania", "Arica y Parinacota", "Atacama", "Aysen", "Biobio", "Chile", "Coquimbo", "Los Lagos", "Los Rios", "Magallanes", "Maule", "Metropolitana", "Nuble", "OHiggins", "Tarapaca", "Unknown", "Valparaiso"],
+        "China": ["Anhui", "Beijing", "Chongqing", "Fujian", "Gansu", "Guangdong", "Guangxi", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", "Hong Kong", "Hubei", "Hunan", "Inner Mongolia", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Macau", "Ningxia", "Qinghai", "Shaanxi", "Shandong", "Shanghai", "Shanxi", "Sichuan", "Tianjin", "Tibet", "Unknown", "Xinjiang", "Yunnan", "Zhejiang"],
+        "Colombia": ["Amazonas", "Antioquia", "Arauca", "Atlantico", "Bolivar", "Boyaca", "Caldas", "Capital District", "Caqueta", "Casanare", "Cauca", "Cesar", "Choco", "Colombia", "Cordoba", "Cundinamarca", "Guainia", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Narino", "Norte de Santander", "Putumayo", "Quindio", "Risaralda", "San Andres y Providencia", "Santander", "Sucre", "Tolima", "Unknown", "Valle del Cauca", "Vaupes", "Vichada"],
+        "Comoros": ["Comoros"],
+        "Congo (Brazzaville)": ["Congo (Brazzaville)"],
+        "Congo (Kinshasa)": ["Congo (Kinshasa)"],
+        "Costa Rica": ["Costa Rica"],
+        "Cote d'Ivoire": ["Cote d'Ivoire"],
+        "Croatia": ["Croatia"],
+        "Cruise Ship": ["Diamond Princess"],
+        "Cuba": ["Cuba"],
+        "Cyprus": ["Cyprus"],
+        "Czechia": ["Czechia"],
+        "Denmark": ["Denmark", "Faroe Islands", "Greenland"],
+        "Diamond Princess": ["Diamond Princess"],
+        "Djibouti": ["Djibouti"],
+        "Dominica": ["Dominica"],
+        "Dominican Republic": ["Dominican Republic"],
+        "Ecuador": ["Ecuador"],
+        "Egypt": ["Egypt"],
+        "El Salvador": ["El Salvador"],
+        "Equatorial Guinea": ["Equatorial Guinea"],
+        "Eritrea": ["Eritrea"],
+        "Estonia": ["Estonia"],
+        "Eswatini": ["Eswatini"],
+        "Ethiopia": ["Ethiopia"],
+        "Fiji": ["Fiji"],
+        "Finland": ["Finland"],
+        "France": ["France", "French Guiana", "French Polynesia", "Guadeloupe", "Martinique", "Mayotte", "New Caledonia", "Reunion", "Saint Barthelemy", "Saint Pierre and Miquelon", "St Martin", "Wallis and Futuna"],
+        "Gabon": ["Gabon"],
+        "Gambia": ["Gambia"],
+        "Georgia": ["Georgia"],
+        "Germany": ["Baden-Wurttemberg", "Bayern", "Berlin", "Brandenburg", "Bremen", "Germany", "Hamburg", "Hessen", "Mecklenburg-Vorpommern", "Niedersachsen", "Nordrhein-Westfalen", "Rheinland-Pfalz", "Saarland", "Sachsen", "Sachsen-Anhalt", "Schleswig-Holstein", "Thuringen", "Unknown"],
+        "Ghana": ["Ghana"],
+        "Greece": ["Greece"],
+        "Grenada": ["Grenada"],
+        "Guatemala": ["Guatemala"],
+        "Guinea": ["Guinea"],
+        "Guinea-Bissau": ["Guinea-Bissau"],
+        "Guyana": ["Guyana"],
+        "Haiti": ["Haiti"],
+        "Holy See": ["Holy See"],
+        "Honduras": ["Honduras"],
+        "Hungary": ["Hungary"],
+        "Iceland": ["Iceland"],
+        "India": ["Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadar Nagar Haveli", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "India", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Ladakh", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Unknown", "Uttar Pradesh", "Uttarakhand", "West Bengal"],
+        "Indonesia": ["Indonesia"],
+        "Iran": ["Iran"],
+        "Iraq": ["Iraq"],
+        "Ireland": ["Ireland"],
+        "Israel": ["Israel"],
+        "Italy": ["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia-Romagna", "Friuli Venezia Giulia", "Italy", "Lazio", "Liguria", "Lombardia", "Marche", "Molise", "P.A. Bolzano", "P.A. Trento", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana", "Umbria", "Valle d'Aosta", "Veneto"],
+        "Jamaica": ["Jamaica"],
+        "Japan": ["Aichi", "Akita", "Aomori", "Chiba", "Ehime", "Fukui", "Fukuoka", "Fukushima", "Gifu", "Gunma", "Hiroshima", "Hokkaido", "Hyogo", "Ibaraki", "Ishikawa", "Iwate", "Japan", "Kagawa", "Kagoshima", "Kanagawa", "Kochi", "Kumamoto", "Kyoto", "Mie", "Miyagi", "Miyazaki", "Nagano", "Nagasaki", "Nara", "Niigata", "Oita", "Okayama", "Okinawa", "Osaka", "Port Quarantine", "Saga", "Saitama", "Shiga", "Shimane", "Shizuoka", "Tochigi", "Tokushima", "Tokyo", "Tottori", "Toyama", "Unknown", "Wakayama", "Yamagata", "Yamaguchi", "Yamanashi"],
+        "Jordan": ["Jordan"],
+        "Kazakhstan": ["Kazakhstan"],
+        "Kenya": ["Kenya"],
+        "Kiribati": ["Kiribati"],
+        "Kosovo": ["Kosovo"],
+        "Kuwait": ["Kuwait"],
+        "Kyrgyzstan": ["Kyrgyzstan"],
+        "Laos": ["Laos"],
+        "Latvia": ["Latvia"],
+        "Lebanon": ["Lebanon"],
+        "Lesotho": ["Lesotho"],
+        "Liberia": ["Liberia"],
+        "Libya": ["Libya"],
+        "Liechtenstein": ["Liechtenstein"],
+        "Lithuania": ["Lithuania"],
+        "Luxembourg": ["Luxembourg"],
+        "MS Zaandam": ["MS Zaandam"],
+        "Madagascar": ["Madagascar"],
+        "Malawi": ["Malawi"],
+        "Malaysia": ["Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Pulau Pinang", "Sabah", "Sarawak", "Selangor", "Terengganu", "Unknown", "W.P. Kuala Lumpur", "W.P. Labuan", "W.P. Putrajaya"],
+        "Maldives": ["Maldives"],
+        "Mali": ["Mali"],
+        "Malta": ["Malta"],
+        "Marshall Islands": ["Marshall Islands"],
+        "Mauritania": ["Mauritania"],
+        "Mauritius": ["Mauritius"],
+        "Mexico": ["Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Ciudad de Mexico", "Coahuila", "Colima", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Mexico", "Michoacan", "Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro", "Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Unknown", "Veracruz", "Yucatan", "Zacatecas"],
+        "Micronesia": ["Micronesia"],
+        "Moldova": ["Moldova"],
+        "Monaco": ["Monaco"],
+        "Mongolia": ["Mongolia"],
+        "Montenegro": ["Montenegro"],
+        "Morocco": ["Morocco"],
+        "Mozambique": ["Mozambique"],
+        "Namibia": ["Namibia"],
+        "Nepal": ["Nepal"],
+        "Netherlands": ["Aruba", "Curacao", "Drenthe", "Flevoland", "Friesland", "Gelderland", "Groningen", "Limburg", "Netherlands", "Noord-Brabant", "Noord-Holland", "Overijssel", "Sint Maarten", "Unknown", "Utrecht", "Zeeland", "Zuid-Holland"],
+        "New Zealand": ["Cook Islands", "New Zealand"],
+        "Nicaragua": ["Nicaragua"],
+        "Niger": ["Niger"],
+        "Nigeria": ["Nigeria"],
+        "North Macedonia": ["North Macedonia"],
+        "Norway": ["Norway"],
+        "Oman": ["Oman"],
+        "Pakistan": ["Azad Jammu and Kashmir", "Balochistan", "Gilgit-Baltistan", "Islamabad", "Khyber Pakhtunkhwa", "Pakistan", "Punjab", "Sindh"],
+        "Palau": ["Palau"],
+        "Panama": ["Panama"],
+        "Papua New Guinea": ["Papua New Guinea"],
+        "Paraguay": ["Paraguay"],
+        "Peru": ["Amazonas", "Ancash", "Apurimac", "Arequipa", "Ayacucho", "Cajamarca", "Callao", "Cusco", "Huancavelica", "Huanuco", "Ica", "Junin", "La Libertad", "Lambayeque", "Lima", "Loreto", "Madre de Dios", "Moquegua", "Pasco", "Peru", "Piura", "Puno", "San Martin", "Tacna", "Tumbes", "Ucayali", "Unknown"],
+        "Philippines": ["Philippines"],
+        "Poland": ["Poland"],
+        "Portugal": ["Portugal"],
+        "Qatar": ["Qatar"],
+        "Romania": ["Romania"],
+        "Russia": ["Adygea Republic", "Altai Krai", "Altai Republic", "Amur Oblast", "Arkhangelsk Oblast", "Astrakhan Oblast", "Bashkortostan Republic", "Belgorod Oblast", "Bryansk Oblast", "Buryatia Republic", "Chechen Republic", "Chelyabinsk Oblast", "Chukotka Autonomous Okrug", "Chuvashia Republic", "Dagestan Republic", "Ingushetia Republic", "Irkutsk Oblast", "Ivanovo Oblast", "Jewish Autonomous Okrug", "Kabardino-Balkarian Republic", "Kaliningrad Oblast", "Kalmykia Republic", "Kaluga Oblast", "Kamchatka Krai", "Karachay-Cherkess Republic", "Karelia Republic", "Kemerovo Oblast", "Khabarovsk Krai", "Khakassia Republic", "Khanty-Mansi Autonomous Okrug", "Kirov Oblast", "Komi Republic", "Kostroma Oblast", "Krasnodar Krai", "Krasnoyarsk Krai", "Kurgan Oblast", "Kursk Oblast", "Leningrad Oblast", "Lipetsk Oblast", "Magadan Oblast", "Mari El Republic", "Mordovia Republic", "Moscow", "Moscow Oblast", "Murmansk Oblast", "Nenets Autonomous Okrug", "Nizhny Novgorod Oblast", "North Ossetia - Alania Republic", "Novgorod Oblast", "Novosibirsk Oblast", "Omsk Oblast", "Orel Oblast", "Orenburg Oblast", "Penza Oblast", "Perm Krai", "Primorsky Krai", "Pskov Oblast", "Rostov Oblast", "Russia", "Ryazan Oblast", "Saint Petersburg", "Sakha (Yakutiya) Republic", "Sakhalin Oblast", "Samara Oblast", "Saratov Oblast", "Smolensk Oblast", "Stavropol Krai", "Sverdlovsk Oblast", "Tambov Oblast", "Tatarstan Republic", "Tomsk Oblast", "Tula Oblast", "Tver Oblast", "Tyumen Oblast", "Tyva Republic", "Udmurt Republic", "Ulyanovsk Oblast", "Vladimir Oblast", "Volgograd Oblast", "Vologda Oblast", "Voronezh Oblast", "Yamalo-Nenets Autonomous Okrug", "Yaroslavl Oblast", "Zabaykalsky Krai"],
+        "Rwanda": ["Rwanda"],
+        "Saint Kitts and Nevis": ["Saint Kitts and Nevis"],
+        "Saint Lucia": ["Saint Lucia"],
+        "Saint Vincent and the Grenadines": ["Saint Vincent and the Grenadines"],
+        "Samoa": ["Samoa"],
+        "San Marino": ["San Marino"],
+        "Sao Tome and Principe": ["Sao Tome and Principe"],
+        "Saudi Arabia": ["Saudi Arabia"],
+        "Senegal": ["Senegal"],
+        "Serbia": ["Serbia"],
+        "Seychelles": ["Seychelles"],
+        "Sierra Leone": ["Sierra Leone"],
+        "Singapore": ["Singapore"],
+        "Slovakia": ["Slovakia"],
+        "Slovenia": ["Slovenia"],
+        "Solomon Islands": ["Solomon Islands"],
+        "Somalia": ["Somalia"],
+        "South Africa": ["South Africa"],
+        "South Sudan": ["South Sudan"],
+        "Spain": ["Andalusia", "Aragon", "Asturias", "Baleares", "C. Valenciana", "Canarias", "Cantabria", "Castilla - La Mancha", "Castilla y Leon", "Catalonia", "Ceuta", "Extremadura", "Galicia", "La Rioja", "Madrid", "Melilla", "Murcia", "Navarra", "Pais Vasco", "Spain", "Unknown"],
+        "Sri Lanka": ["Sri Lanka"],
+        "Sudan": ["Sudan"],
+        "Summer Olympics 2020": ["Summer Olympics 2020"],
+        "Suriname": ["Suriname"],
+        "Sweden": ["Blekinge", "Dalarna", "Gavleborg", "Gotland", "Halland", "Jamtland Harjedalen", "Jonkoping", "Kalmar", "Kronoberg", "Norrbotten", "Orebro", "Ostergotland", "Skane", "Sormland", "Stockholm", "Sweden", "Uppsala", "Varmland", "Vasterbotten", "Vasternorrland", "Vastmanland", "Vastra Gotaland"],
+        "Switzerland": ["Switzerland"],
+        "Syria": ["Syria"],
+        "Taiwan*": ["Taiwan*"],
+        "Tajikistan": ["Tajikistan"],
+        "Tanzania": ["Tanzania"],
+        "Thailand": ["Thailand"],
+        "Timor-Leste": ["Timor-Leste"],
+        "Togo": ["Togo"],
+        "Tonga": ["Tonga"],
+        "Trinidad and Tobago": ["Trinidad and Tobago"],
+        "Tunisia": ["Tunisia"],
+        "Turkey": ["Turkey"],
+        "US": ["Alabama", "Alaska", "American Samoa", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Diamond Princess", "District of Columbia", "Florida", "Georgia", "Grand Princess", "Guam", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Recovered", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virgin Islands", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],
+        "Uganda": ["Uganda"],
+        "Ukraine": ["Cherkasy Oblast", "Chernihiv Oblast", "Chernivtsi Oblast", "Crimea Republic*", "Dnipropetrovsk Oblast", "Donetsk Oblast", "Ivano-Frankivsk Oblast", "Kharkiv Oblast", "Kherson Oblast", "Khmelnytskyi Oblast", "Kiev", "Kiev Oblast", "Kirovohrad Oblast", "Luhansk Oblast", "Lviv Oblast", "Mykolaiv Oblast", "Odessa Oblast", "Poltava Oblast", "Rivne Oblast", "Sevastopol*", "Sumy Oblast", "Ternopil Oblast", "Ukraine", "Vinnytsia Oblast", "Volyn Oblast", "Zakarpattia Oblast", "Zaporizhia Oblast", "Zhytomyr Oblast"],
+        "United Arab Emirates": ["United Arab Emirates"],
+        "United Kingdom": ["Anguilla", "Bermuda", "British Virgin Islands", "Cayman Islands", "Channel Islands", "England", "Falkland Islands (Islas Malvinas)", "Falkland Islands (Malvinas)", "Gibraltar", "Isle of Man", "Montserrat", "Northern Ireland", "Scotland", "Turks and Caicos Islands", "United Kingdom", "Unknown", "Wales"],
+        "Uruguay": ["Uruguay"],
+        "Uzbekistan": ["Uzbekistan"],
+        "Vanuatu": ["Vanuatu"],
+        "Venezuela": ["Venezuela"],
+        "Vietnam": ["Vietnam"],
+        "West Bank and Gaza": ["West Bank and Gaza"],
+        "Yemen": ["Yemen"],
+        "Zambia": ["Zambia"],
+        "Zimbabwe": ["Zimbabwe"]
+      }
+
+      function setstate(){
+        let obj = document.getElementById("country");
+        let country = obj.options[obj.selectedIndex].value;
+        let states = country_state[country];
+        let numofstates = states.length;
+        let output = '<option value="">Please select country first</option>'
+        // console.log(output)
+        for (var i = 0; i < numofstates; i++){
+          console.log(states[i])
+          output += `<option value="${states[i]}">${states[i]}</option>`
+        }
+
+        console.log(output)
+        let $id_state = document.getElementById("state")
+        $id_state.innerHTML = output
+      }
+    </script>
+
+<!--	<input type="text" name="country" value="US"/>-->
+      </label>
+
+      <label>
+	<span>State/Province:</span>
+    <select id="state" name="state">
+      <option value="">Please select country first</option>
+    </select>
+<!--	<input type="text" name="state" value="Illinois"/>-->
+      </label>
+
+    <label>
+        <span>Date (YYYY-MM-DD):</span>
+        <input type="text" name="date" value="2021-01-01"/>
+    </label>
+      </div>
+      <label>
+	<span></span> <input  type="submit" value="Submit">
+      </label>
+
+    </form>
+    <p style="margin-bottom:2cm"/>
+
+    <iframe frameBorder="0" name="results_iframe" style="display:block;width:70%;margin-left:auto;margin-right:auto"/>
+
+  </body>
+</html>
